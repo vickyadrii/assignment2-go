@@ -101,3 +101,22 @@ func (oh *orderHandler) UpdateOrder(ctx *gin.Context) {
 
 	ctx.JSON(response.StatusCode, response)
 }
+
+func (oh *orderHandler) DeleteOrder(ctx *gin.Context) {
+
+	orderId, errParam := strconv.Atoi(ctx.Param("orderId"))
+
+	if errParam != nil {
+		errParsingParam := errs.NewBadRequest("orderId has to be a valid number value")
+		ctx.AbortWithStatusJSON(errParsingParam.Status(), errParsingParam)
+		return
+	}
+
+	response, err := oh.OrderService.DeleteOrder(orderId)
+
+	if err != nil {
+		ctx.AbortWithStatusJSON(err.Status(), err)
+	}
+
+	ctx.JSON(response.StatusCode, response)
+}

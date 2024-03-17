@@ -42,4 +42,9 @@ const (
 		"quantity" = $3
 		WHERE "item_code" = $1
 	`
+
+	deleteOrderByIdQuery = `
+		DELETE from "orders"
+		WHERE "order_id" = $1
+	`
 )
