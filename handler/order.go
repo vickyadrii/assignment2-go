@@ -102,6 +102,15 @@ func (oh *orderHandler) UpdateOrder(ctx *gin.Context) {
 	ctx.JSON(response.StatusCode, response)
 }
 
+
+// @Tags orders
+// @Description Delete Order Data By Id
+// @ID delete-order
+// @Accept json
+// @Produce json
+// @Param orderId path int true "order's id"
+// @Success 200 {object} dto.NewOrderResponseDto
+// @Router /orders/{orderId} [delete]
 func (oh *orderHandler) DeleteOrder(ctx *gin.Context) {
 
 	orderId, errParam := strconv.Atoi(ctx.Param("orderId"))
