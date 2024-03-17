@@ -1,6 +1,6 @@
 # Assignment 2 - Go | Kominfo x Hacktiv8
 
-## Folder Structure
+## Layered Architecture
 
 ```
 ├───docs        # Design file and documentation API.
